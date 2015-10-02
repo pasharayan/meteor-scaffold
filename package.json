@@ -8,7 +8,7 @@
     "bin": "./bin"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jasmine-node tests"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,12 @@
   "bugs": {
     "url": "https://github.com/pasharayan/meteor-scaffold/issues"
   },
-  "homepage": "https://github.com/pasharayan/meteor-scaffold"
+  "homepage": "https://github.com/pasharayan/meteor-scaffold",
+  "dependencies": {
+    "readline-sync": "^1.2.21",
+    "shelljs": "^0.5.3"
+  },
+  "devDependencies": {
+    "jasmine-node": "^1.14.5"
+  }
 }
