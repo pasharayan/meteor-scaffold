@@ -1,0 +1,26 @@
+Router.route('/{{routeName}}', {
+  name: '{{routeName}}Index',
+  waitOn: function() {
+    return [
+      Meteor.subscribe('{{pubsubName}}/get')
+    ];
+  }
+});
+
+Router.route('/{{routeName}}/:_id', {
+  name: '{{routeName}}Show',
+  waitOn: function() {
+    return [
+      Meteor.subscribe('{{pubsubName}}/getById', this.params._id)
+    ];
+  }
+});
+
+Router.route('/{{routeName}}/:_id/edit', {
+  name: '{{routeName}}Edit',
+  waitOn: function() {
+    return [
+      Meteor.subscribe('{{pubsubName}}/getById', this.params._id)
+    ];
+  }
+});
