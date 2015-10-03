@@ -26,8 +26,12 @@
   },
   "homepage": "https://github.com/pasharayan/meteor-scaffold",
   "dependencies": {
+    "change-case": "^2.3.0",
+    "fs": "0.0.2",
+    "path": "^0.12.7",
     "readline-sync": "^1.2.21",
-    "shelljs": "^0.5.3"
+    "shelljs": "^0.5.3",
+    "text-temple": "https://github.com/kAlbert19/node-text-temple/archive/master.tar.gz"
   },
   "devDependencies": {
     "jasmine-node": "^1.14.5"
