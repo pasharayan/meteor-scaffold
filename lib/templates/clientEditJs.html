@@ -1,0 +1,39 @@
+Template.{{variableName}}Edit.helpers({
+
+});
+
+Template.{{variableName}}Edit.events({
+  'submit .{{variableName}}-edit': function(e) {
+    e.preventDefault();
+    var data = {
+      title: $(e.target).find('[name=title]').val(),
+      description: $(e.target).find('[name=description]').val(),
+    };
+
+    Meteor.call('{{variableName}}/update', this._id, data, function(error, result){
+      if(error) {
+        console.log(error);
+      } else {
+        Router.go('{{variableName}}Show', {_id: result.{{variableName}}Id});
+      }
+    });
+  },
+
+  'click .delete-{{variableName}}': function(e) {
+    e.preventDefault();
+    var r = confirm("Delete this {{variableName}}?");
+    if (r === true) {
+      Meteor.call('{{variableName}}/destroy', this._id);
+      Router.go('{{variableName}}Index');
+    }
+  }
+
+});
+
+Template.{{variableName}}Edit.created = function(){
+
+};
+
+Template.{{variableName}}Edit.rendered = function(){
+
+};
