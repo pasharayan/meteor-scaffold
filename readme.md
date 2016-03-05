@@ -12,4 +12,5 @@ How Meteor-Scaffold works:
 3. Meteor-scaffold.js has the main() function of this package. This is where the generator functions which use templates and blueprints.js are called.
 
 TODO:
-Move all templates into the template/blueprints pattern
+- Move all templates into the template/blueprints pattern
+- Add dynamic route folders to blueprints.js

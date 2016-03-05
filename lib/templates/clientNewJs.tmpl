@@ -1,0 +1,29 @@
+Template.{{variableName}}New.helpers({
+
+});
+
+Template.{{variableName}}New.events({
+  'submit .{{variableName}}-new': function(e) {
+    e.preventDefault();
+    var data = {
+      title: $(e.target).find('[name=title]').val(),
+      description: $(e.target).find('[name=description]').val(),
+    };
+
+    Meteor.call('{{variableName}}/create', data, function(error, result){
+      if(error) {
+        console.log(error);
+      } else {
+        Router.go('{{variableName}}Show', {_id: result});
+      }
+    });
+  }
+});
+
+Template.{{variableName}}New.created = function(){
+
+};
+
+Template.{{variableName}}New.rendered = function(){
+
+};
