@@ -1,0 +1,55 @@
+Meteor.methods({
+  '{{variableName}}/create': function(data) {
+    check(data,{
+      title: String,
+      description: String,
+    });
+
+    data.submitDate = new Date();
+    data.submitUser = Meteor.userId();
+
+    var {{variableName}}Id  = {{serverName}}.insert(data);
+
+    return {
+      {{variableName}}Id: {{variableName}},
+    };
+  },
+
+
+  '{{variableName}}/update': function({{variableName}}Id, data) {
+
+    check({{variableName}}Id, String);
+    check(data,{
+      title: String,
+      description: String,
+    });
+
+    data.lastModified = new Date();
+    data.lastModifiedUser = Meteor.userId();
+
+    var result  = {
+      result: {{serverName}}.update({{variableName}}Id, {$set: data}),
+    };
+
+    return result;
+  },
+
+
+  '{{variableName}}/destroy': function({{variableName}}Id) {
+    check({{variableName}}Id, String);
+    // var result  = {{serverName}}.remove({{variableName}}Id);
+
+    /**************************************************************
+      Don't hard delete anything. Just set Deleted Field to True
+    ***************************************************************/
+
+    {{serverName}}.update({{variableName}}Id, {
+      $set: {
+        deleted: true,
+        lastModified: new Date(),
+        lastModifiedUser: Meteor.userId(),
+      }
+    });
+    return result;
+  },
+});

@@ -1,0 +1,7 @@
+Meteor.publish('{{variableName}}', function(){
+  return {{serverName}}.find({deleted: {$ne: true}});
+});
+
+Meteor.publish('{{variableName}}One', function({{variableName}}Id){
+  return {{serverName}}.find({_id: {{variableName}}Id, deleted: {$ne: true}});
+});
