@@ -1,0 +1,12 @@
+<template name='{{variableName}}Edit'>
+  {{variableName}} Edit
+  <form class="{{variableName}}-edit">
+    Title: <input type="text" name="title" class="form-control" value="{{title}}">
+    <br/>
+    Description: <input type="description" class="form-control" name="description" value="{{description}}">
+    <br/>
+    <input type="submit" class="btn btn-lg btn-success">
+  </form>
+
+  <a href="#" class="delete-{{variableName}} btn btn-lg btn-danger">Delete {{variableName}}</a>
+</template>
