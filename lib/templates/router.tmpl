@@ -24,3 +24,15 @@ Router.route('/{{routeName}}/:_id/edit', {
     ];
   }
 });
+
+Router.route('/{{variableName}}/new', {
+  name: 'analysesNew',
+  waitOn: function(){
+    return [
+      Meteor.subscribe('policiesOne', this.params.policyId),
+    ];
+  },
+  data: function(){
+    return Policies.findOne({_id: this.params.policyId});
+  }
+});
