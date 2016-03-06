@@ -1,4 +1,11 @@
 <template name='{{variableName}}Index'>
   <h2>{{variableName}} Index</h2>
-  <a href="{{pathFor '{{variableName}}New'}}" class="btn btn-info"> Create New {{variableName}}</a>
+  <ul>
+    {/{/#each this}/}/
+      <li>
+        <a href="{/{/pathFor '{{variableName}}Show' this._id}/}/">{/{/title}/}/ - {/{/description}/}/</a>
+      </li>
+    {/{//each}/}/
+  </ul>
+  <a href="{/{/pathFor '{{variableName}}New'}/}/" class="btn btn-info"> Create New {{variableName}}</a>
 </template>
