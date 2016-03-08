@@ -31,7 +31,9 @@ Meteor.methods({
       result: {{serverName}}.update({{variableName}}Id, {$set: data}),
     };
 
-    return result;
+    return {
+      {{variableName}}Id: {{variableName}}Id
+    };
   },
 
 
@@ -47,7 +49,7 @@ Meteor.methods({
       $set: {
         deleted: true,
         lastModified: new Date(),
-        lastModifiedUser: Meteor.userId(),
+        // lastModifiedUser: Meteor.userId(),
       }
     });
     return result;

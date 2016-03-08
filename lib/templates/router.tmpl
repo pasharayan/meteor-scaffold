@@ -8,7 +8,10 @@ Router.route('/{{routeName}}', {
     return [
       Meteor.subscribe('{{pubsubName}}/get')
     ];
-  }
+  },
+  data: function() {
+    return {{serverName}}.find();
+  },
 });
 
 Router.route('/{{routeName}}/:_id', {
@@ -29,5 +32,8 @@ Router.route('/{{routeName}}/:_id/edit', {
     return [
       Meteor.subscribe('{{pubsubName}}/getById', this.params._id)
     ];
-  }
+  },
+  data: function() {
+    return {{serverName}}.findOne(this.params._id);
+  },
 });
