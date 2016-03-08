@@ -6,12 +6,12 @@ Meteor.methods({
     });
 
     data.submitDate = new Date();
-    data.submitUser = Meteor.userId();
+    //data.submitUser = Meteor.userId();
 
     var {{variableName}}Id  = {{serverName}}.insert(data);
 
     return {
-      {{variableName}}Id: {{variableName}},
+      {{variableName}}Id: {{variableName}}Id,
     };
   },
 
@@ -25,7 +25,7 @@ Meteor.methods({
     });
 
     data.lastModified = new Date();
-    data.lastModifiedUser = Meteor.userId();
+    //data.lastModifiedUser = Meteor.userId();
 
     var result  = {
       result: {{serverName}}.update({{variableName}}Id, {$set: data}),

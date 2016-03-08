@@ -14,3 +14,7 @@ How Meteor-Scaffold works:
 TODO:
 - Move all templates into the template/blueprints pattern
 - Add dynamic route folders to blueprints.js
+
+
+Required Meteor Addons:
+check - meteor add check

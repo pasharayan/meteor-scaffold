@@ -1,3 +1,7 @@
+Router.route('/{{variableName}}/new', {
+  name: '{{routeName}}New',
+});
+
 Router.route('/{{routeName}}', {
   name: '{{routeName}}Index',
   waitOn: function() {
@@ -13,7 +17,10 @@ Router.route('/{{routeName}}/:_id', {
     return [
       Meteor.subscribe('{{pubsubName}}/getById', this.params._id)
     ];
-  }
+  },
+  data: function() {
+    return {{serverName}}.findOne(this.params._id);
+  },
 });
 
 Router.route('/{{routeName}}/:_id/edit', {
@@ -22,17 +29,5 @@ Router.route('/{{routeName}}/:_id/edit', {
     return [
       Meteor.subscribe('{{pubsubName}}/getById', this.params._id)
     ];
-  }
-});
-
-Router.route('/{{variableName}}/new', {
-  name: 'analysesNew',
-  waitOn: function(){
-    return [
-      Meteor.subscribe('policiesOne', this.params.policyId),
-    ];
-  },
-  data: function(){
-    return Policies.findOne({_id: this.params.policyId});
   }
 });

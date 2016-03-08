@@ -14,7 +14,7 @@ Template.{{variableName}}New.events({
       if(error) {
         console.log(error);
       } else {
-        Router.go('{{variableName}}Show', {_id: result});
+        Router.go('{{variableName}}Show', {_id: result.{{variableName}}Id});
       }
     });
   }
